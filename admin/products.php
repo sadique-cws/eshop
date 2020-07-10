@@ -1,3 +1,4 @@
+<?php include_once("../include/config.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,16 +49,29 @@
                     </tr>
                     
                     <!-- todo: calling products in loop -->
+                    <?php 
+                    $products = $data->callingDataQuery(
+                        "SELECT * FROM products 
+                        JOIN brand ON products.brand = brand.brand_id
+                        JOIN categories ON products.category = categories.cat_id"
+                    );
+                    foreach($products as $product):
+                    ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?= $product['product_id'];?></td>
+                        <td><?= $product['title'];?></td>
+                        <td><?= $product['brand_name'];?></td>
+                        <td><?= $product['cat_title'];?></td>
+                        <td><?= $product['price'];?></td>
+                        <td><?= $product['discounted_price'];?></td>
+                        <td><?= $product['description'];?></td>
+                        <td>
+                            <a href="" class="btn btn-success btn-sm">View</a>
+                            <a href="" class="btn btn-info btn-sm">edit</a>
+                            <a href="" class="btn btn-danger btn-sm">X</a>
+                        </td>
                     </tr>
-                    
+                    <?php endforeach;?>
                 </table>
             </div>
             
