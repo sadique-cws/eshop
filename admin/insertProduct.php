@@ -8,26 +8,14 @@
     
 </head>
 <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <div class="container">
-            <a href="" class="navbar-brand">Admin Panel</a>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
-            </ul>
-       </div>
-    </nav>
+      <?php include_once("include/nav.php");?>
+
     
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-3">
-                <div class="list-group">
-                    <a href="" class="list-group-item list-group-item-action">DashBoard</a>
-                    <a href="" class="list-group-item list-group-item-action">Products</a>
-                    <a href="" class="list-group-item list-group-item-action">Categories</a>
-                    <a href="" class="list-group-item list-group-item-action">Brand</a>
-                    <a href="" class="list-group-item list-group-item-action">Users</a>
-                    <a href="" class="list-group-item list-group-item-action bg-danger text-white">Logout</a>
-                </div>
+                  <?php include_once("include/side.php");?>
+
             </div>
             <div class="col-lg-9">
                 <div class="card">
@@ -74,6 +62,10 @@
                                 <label for="description">description</label>
                                  <textarea rows=10 name="description" id="description" class="form-control"></textarea>
                             </div>
+                             <div class="mb-3">
+                                <label for="image">image</label>
+                                 <input type="file" rows=10 name="image" id="image" class="form-control">
+                            </div>
                             <div class="mb-3">
                                 <input type="submit" name="insert_product" class="btn btn-success btn-block">
                             </div>
@@ -81,6 +73,10 @@
                         
                         <?php
                         if(isset($_POST['insert_product'])){
+                            
+                            $img = $_FILES['image']['name'];
+                            $tmp_img = $_FILES['image']['tmp_name'];
+                            
                             $fields = [
                                 'title' => $_POST['title'],
                                 'brand' => $_POST['brand'],
@@ -88,10 +84,14 @@
                                 'description' => $_POST['description'],
                                 'price' => $_POST['price'],
                                 'discounted_price' => $_POST['discount_price'],
+                                'image' => $img
                                 
                             ];
                             
                             //insert data
+                            
+                            move_uploaded_file($tmp_img,"../image/product/$img");
+                            
                             $result = $data->insertData("products",$fields);
                             $data->redirect("products");
                         }
@@ -101,12 +101,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- JavaScript and dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-  
-    
+    </div>   <?php include_once("include/footer.php");?>
+
     
 </body>
 </html>

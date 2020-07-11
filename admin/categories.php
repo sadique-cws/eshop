@@ -18,42 +18,34 @@
 
             </div>
             <div class="col-lg-9">
-               <blockquote class="blockqoute float-left">Manage Products</blockquote>
+               <blockquote class="blockqoute float-left">Manage Categories</blockquote>
                 
                 <div class="btn-group float-right btn-group-sm">
                     <a href="" class="btn btn-danger">Print</a>
                     <a href="" class="btn btn-info">Export</a>
-                    <a href="insertProduct.php" class="btn btn-success">Insert</a>
+                    <a href="javascript:window.open('insertCategory.php','insert category','popup','width=400')" class="btn btn-success">Insert</a>
                 </div>
                 <table class="table table-striped table-sm">
                     <thead>
                         <tr>
                         <th>Id</th>
                         <th>Title</th>
-                        <th>Brand</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Date</th>
+                        <th>description</th>
+                        <th>status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     
                     <!-- todo: calling products in loop -->
                     <?php 
-                    $products = $data->callingDataQuery(
-                        "SELECT * FROM products 
-                        JOIN brand ON products.brand = brand.brand_id
-                        JOIN categories ON products.category = categories.cat_id"
-                    );
-                    foreach($products as $product):
+                    $categories = $data->callingDataQuery("SELECT * FROM categories");
+                    foreach($categories as $cat):
                     ?>
                     <tr>
-                        <td><?= $product['product_id'];?></td>
-                        <td><?= $product['title'];?></td>
-                        <td><?= $product['brand_name'];?></td>
-                        <td><?= $product['cat_title'];?></td>
-                        <td><?= $product['price'];?></td>
-                        <td><?= $product['discounted_price'];?></td>
+                        <td><?= $cat['cat_id'];?></td>
+                        <td><?= $cat['cat_title'];?></td>
+                        <td><?= $cat['cat_description'];?></td>
+                        <td><?= $cat['cat_status'];?></td>
                         <td>
                             <a href="" class="btn btn-success btn-sm">View</a>
                             <a href="" class="btn btn-info btn-sm">edit</a>
