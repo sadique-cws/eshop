@@ -23,7 +23,7 @@
                 <div class="btn-group float-right btn-group-sm">
                     <a href="" class="btn btn-danger">Print</a>
                     <a href="" class="btn btn-info">Export</a>
-                    <a href="javascript:window.open('insertCategory.php','insert category','popup','width=400')" class="btn btn-success">Insert</a>
+                    <a href="javascript:window.open('insertCategory.php','insert category','popup','width=200')" class="btn btn-success">Insert</a>
                 </div>
                 <table class="table table-striped table-sm">
                     <thead>
