@@ -54,7 +54,7 @@
                                <p class="small">Rs. <?= $product['price'];?>/-</p>
                            </div>
                            <div class="card-footer">
-                               <a href="" class="btn btn-success btn-sm">Add to Cart</a>
+                               <a href="product.php?pro_id=<?= $product['product_id'];?>" class="btn btn-success btn-sm">Add to Cart</a>
                            </div>
                        </div>
                    </div>
