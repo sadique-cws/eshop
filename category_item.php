@@ -15,15 +15,17 @@
    <div class="container-fluid mt-5">
        <div class="row">
            <div class="col-lg-2">
-               <?php include_once('include/side.php');?>
+                <?php include_once('include/side.php');?>
            </div>
            <div class="col-lg-10">
                <div class="row">
                   <?php 
+                   if(isset($_GET['cat_id'])){
+                       $cat_id = $_GET['cat_id'];
                    $products = $data->callingDataQuery(
                         "SELECT * FROM products 
                         JOIN brand ON products.brand = brand.brand_id
-                        JOIN categories ON products.category = categories.cat_id"
+                        JOIN categories ON products.category = categories.cat_id where products.category = '$cat_id'"
                     );
                     foreach($products as $product):
                    ?>
@@ -40,7 +42,10 @@
                            </div>
                        </div>
                    </div>
-                   <?php endforeach; ?>
+                   <?php endforeach; 
+                   
+                   }
+                   ?>
                </div>
            </div>
        </div>

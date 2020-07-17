@@ -24,18 +24,12 @@
    </nav>
    
    
-   <div class="container mt-5">
+   <div class="container-fluid mt-5">
        <div class="row">
-           <div class="col-lg-3">
-               <div class="list-group">
-                   <a href="" class="list-group-item list-group-item-action">Categories</a>
-                   <?php $calling = $data->callingData('categories'); 
-                   foreach($calling as $cat):?>
-                   <a href="" class="list-group-item list-group-item-action"><?= $cat['cat_title'];?></a>
-                   <?php endforeach; ?>
-               </div>
+           <div class="col-lg-2">
+                <?php include_once('include/side.php');?>
            </div>
-           <div class="col-lg-9">
+           <div class="col-lg-10">
                <div class="row">
                   <?php 
                    $id = $_GET['pro_id'];
