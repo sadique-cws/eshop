@@ -94,7 +94,7 @@ class Datawork extends Connection{
     public function GetUserId(){
         if(isset($_SESSION['user'])){
             $log = $_SESSION['user'];
-            $userid = $this->callingData("accounts","email='$log'");
+            $userid = $this->callingData("users","contact='$log'");
             
             return $userid;
             
