@@ -39,6 +39,18 @@ class Datawork extends Connection{
 			return false;
 		}
 	}
+	public function insertData_getid($table,$fields){
+		
+		$col = implode(",",array_keys($fields));
+		$value = implode("','",array_values($fields));
+		$query = "INSERT INTO $table ($col) value('$value')";
+		
+		$run = $this->dbc->query($query);
+		
+		if($run){
+			return $this->dbc->insert_id;
+		}
+	}
 	
     public function redirect($page){
         echo "<script>window.open('$page.php','_self')</script>";

@@ -34,7 +34,7 @@
                                             <p class="small">Rs.
                                                 <?= $product['description'];?>/-</p>
                                             <div class="row">
-                                                <div class="col-lg-3"> <a href="" class="btn btn-success btn-block">Add to Cart</a> </div>
+                                                <div class="col-lg-3"> <a href="add_to_cart.php?pro_id=<?= $product['product_id'];?>" class="btn btn-success btn-block">Add to Cart</a> </div>
                                                 <div class="col-lg-3"> <a href="" class="btn btn-secondary btn-block">Know More</a> </div>
                                             </div>
                                         </div>
