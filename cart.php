@@ -23,7 +23,7 @@
                     );
                     foreach($items as $item):
                    ?>
-                   <div class="col-lg-12">
+                   <div class="col-lg-9">
                       
                        <div class="card mb-2 bg-light">
                           <div class="row">
@@ -34,15 +34,19 @@
                                   <div class="card-body">
                                <h5><?= $item['title'];?></h5>
                                <p class="small">Rs. <?= $item['price'];?>/-</p>
-                               <a href="" class="btn btn-danger btn-sm">-</a>
+                               <a href="remove_from_cart.php?pro_id=<?= $item['product_id'];?>" class="btn btn-danger btn-sm">-</a>
                                <span class="small"><?= $item['qty'];?></span>
                                <a href="add_to_cart.php?pro_id=<?= $item['product_id'];?>" class="btn btn-success btn-sm">+</a>
-                           </div>
+							<a href="remove_item_from_cart.php?pro_id=<?= $item['product_id'];?>" class="btn btn-danger float-right">Delete</a>
+						   </div>
                               </div>
                           </div>
                            
                        </div>
                    </div>
+				   <div class="col-lg-3">
+				   
+				   </div>
                    <?php endforeach; ?>
                </div>
            </div>
