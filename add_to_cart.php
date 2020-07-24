@@ -1,6 +1,10 @@
 <?php
 include "include/config.php";
 
+if(!isset($_SESSION['user'])){
+	$data->redirect('login');
+}
+
 $user = $data->GetUserId();
 
 

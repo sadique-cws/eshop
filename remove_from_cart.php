@@ -23,7 +23,13 @@ if(isset($_GET['pro_id'])){
     if(!empty($orderitem)){
         //need to update qty in case of exist
         $qty = $orderitem[0]['qty'] -= 1;
+
         $orderitem_id = $orderitem[0]['orderitem_id'];
+
+		if($qty < 1){
+		echo "<script>window.open('remove_item_from_cart.php?pro_id=$pro_id','_self')</script>";
+		}
+
         if($data->updateData('orderitem',"qty ='$qty'"," orderitem_id='$orderitem_id'")){
             //successfully update your cart
             $data->alert('cart updated successfully');

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container"> <a href="" class="navbar-brand">Shop</a>
+    <div class="container"> <a href="index.php" class="navbar-brand">Shop</a>
         <form action="" class="d-flex mx-auto">
             <input type="search" class="form-control" size="70" placeholder="search product">
             <input type="submit" class="btn btn-success"> </form>
@@ -10,6 +10,11 @@
                 <li class="nav-item">
                     <a href="" class="nav-link">
                         <?= $_SESSION['user'];?>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="Logout.php" class="btn btn-danger">
+                        Logout
                     </a>
                 </li>
                 <?php else: ?>
